@@ -41,24 +41,44 @@ rl.on("close", () => {
   console.log(`There are ${countUnique(lastNames)} unique last names.`);
   console.log(`There are ${countUnique(firstNames)} unique first names.`);
 
-  // Question 2 //
+  // Question 2 and 3 //
   ////////////////
-  var firstNamesObj = {};
-  firstNames.forEach(function (i) {
-    firstNamesObj[i] = (firstNamesObj[i] || 0) + 1;
-  });
+  function mostCommon(tab) {
+    var obj = {};
+    tab.forEach(function (i) {
+      obj[i] = (obj[i] || 0) + 1;
+    });
 
-  var sortable = [];
-  for (var firstName in firstNamesObj) {
-    sortable.push([firstName, firstNamesObj[firstName]]);
+    var sortable = [];
+    for (var key in obj) {
+      sortable.push([key, obj[key]]);
+    }
+
+    sortable.sort(function (a, b) {
+      return b[1] - a[1];
+    });
+    sortable.sort(function (a, b) {
+      return b[1] - a[1];
+    });
+
+    return sortable;
   }
 
-  sortable.sort(function (a, b) {
-    return b[1] - a[1];
-  });
-  console.log("///////////////////////////");
+  console.log("\n");
   console.log("---------------Question2-------------");
-  sortable.slice(0, 10).forEach(function (element) {
-    console.log(`${element[0]} (${element[1]})`);
-  });
+  console.log("The ten most common first names are:");
+  mostCommon(firstNames)
+    .slice(0, 10)
+    .forEach(function (element) {
+      console.log(`${element[0]} (${element[1]})`);
+    });
+
+  console.log("\n");
+  console.log("---------------Question3-------------");
+  console.log("The ten most common last names are:");
+  mostCommon(lastNames)
+    .slice(0, 10)
+    .forEach(function (element) {
+      console.log(`${element[0]} (${element[1]})`);
+    });
 });
