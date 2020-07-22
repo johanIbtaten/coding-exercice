@@ -59,9 +59,6 @@ rl.on("close", () => {
     sortable.sort(function (a, b) {
       return b[1] - a[1];
     });
-    sortable.sort(function (a, b) {
-      return b[1] - a[1];
-    });
 
     return sortable;
   }
@@ -95,5 +92,6 @@ rl.on("close", () => {
   // Question 4 //
   ////////////////
   // A)
+  console.log("---------------Question4-------------");
   console.log(countUnique(fullNames).slice(0, 25));
 });
