@@ -93,7 +93,7 @@ rl.on("close", () => {
   ////////////////
   // A)
   console.log("\n");
-  console.log("---------------Question4-------------");
+  console.log("---------------Question4 A-------------");
   let uniqueFullArr = countUnique(fullNames).slice(0, 25);
   // console.log(countUnique(fullNames).slice(0, 25));
 
@@ -130,7 +130,7 @@ rl.on("close", () => {
   }
 
   console.log("\n");
-  console.log("---------------Question5-------------");
+  console.log("---------------Question4 B-------------");
   console.log("The new 25 unique names are:");
   console.log("combis", resCombinations);
 });
