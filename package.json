@@ -1,0 +1,20 @@
+{
+  "name": "coding-exercice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js -devmode -something 1",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johanIbtaten/coding-exercice.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johanIbtaten/coding-exercice/issues"
+  },
+  "homepage": "https://github.com/johanIbtaten/coding-exercice#readme"
+}
