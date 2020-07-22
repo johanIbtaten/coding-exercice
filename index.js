@@ -19,9 +19,9 @@ const listener = rl.on("line", (line) => {
 });
 
 rl.on("close", () => {
-  console.table(fullNames);
-  console.table(lastNames);
-  console.table(firstNames);
+  // console.table(fullNames);
+  // console.table(lastNames);
+  // console.table(firstNames);
 
   // Question 1 //
   ////////////////
@@ -31,15 +31,17 @@ rl.on("close", () => {
       uniqueObj[i] = (uniqueObj[i] || 0) + 1;
     });
     // console.log(uniqueObj);
-    const countUniqueTab = Object.values(uniqueObj).filter(
-      (value) => value === 1
+    const countUniqueTab = Object.entries(uniqueObj).filter(
+      (element) => element[1] === 1
     );
-    return countUniqueTab.length;
+    return countUniqueTab;
   }
   console.log("---------------Question1-------------");
-  console.log(`There are ${countUnique(fullNames)} unique full names.`);
-  console.log(`There are ${countUnique(lastNames)} unique last names.`);
-  console.log(`There are ${countUnique(firstNames)} unique first names.`);
+  console.log(`There are ${countUnique(fullNames).length} unique full names.`);
+  console.log(`There are ${countUnique(lastNames).length} unique last names.`);
+  console.log(
+    `There are ${countUnique(firstNames).length} unique first names.`
+  );
 
   // Question 2 and 3 //
   ////////////////
@@ -81,4 +83,17 @@ rl.on("close", () => {
     .forEach(function (element) {
       console.log(`${element[0]} (${element[1]})`);
     });
+
+  // var uniqueFullObj = {};
+  // fullNames.forEach(function (i) {
+  //   uniqueFullObj[i] = (uniqueFullObj[i] || 0) + 1;
+  // });
+  // console.log(uniqueFullObj);
+  // const countUniqueTab = Object.entries(uniqueFullObj).filter(
+  //   (value) => value[1] === 1
+  // );
+  // Question 4 //
+  ////////////////
+  // A)
+  console.log(countUnique(fullNames).slice(0, 25));
 });
