@@ -92,6 +92,45 @@ rl.on("close", () => {
   // Question 4 //
   ////////////////
   // A)
+  console.log("\n");
   console.log("---------------Question4-------------");
-  console.log(countUnique(fullNames).slice(0, 25));
+  let uniqueFullArr = countUnique(fullNames).slice(0, 25);
+  // console.log(countUnique(fullNames).slice(0, 25));
+
+  const fulls = [];
+  const lasts = new Set();
+  const firsts = new Set();
+
+  uniqueFullArr.forEach(function (element) {
+    fulls.push(element[0]);
+    lasts.add(element[0].split(", ")[0]);
+    firsts.add(element[0].split(", ")[1]);
+  });
+
+  console.log(fulls);
+  // console.log(lasts);
+  // console.log(firsts);
+
+  var itemLasts = Array.from(lasts);
+  var itemFirsts = Array.from(firsts);
+
+  let resCombinations = new Set();
+
+  //let isNotUnique = true;
+  while (resCombinations.size <= 25) {
+    //console.log("NotUnique");
+    var itemLast = itemLasts[Math.floor(Math.random() * itemLasts.length)];
+    var itemFirst = itemFirsts[Math.floor(Math.random() * itemFirsts.length)];
+    var itemFull = itemLast + ", " + itemFirst;
+    // console.log("itemFull", itemFull);
+    if (!fulls.includes(itemFull)) {
+      // console.log("Unique!!!");
+      resCombinations.add(itemFull);
+    }
+  }
+
+  console.log("\n");
+  console.log("---------------Question5-------------");
+  console.log("The new 25 unique names are:");
+  console.log("combis", resCombinations);
 });
