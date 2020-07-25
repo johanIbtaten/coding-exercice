@@ -131,6 +131,7 @@ rl.on("close", () => {
         nameListCheck.push(lN);
         nameListCheck.push(fN);
       }
+      // Quand le tableau contient 25 names on sort de la boucle
       if (uniqueNameList.length >= 25) {
         break;
       }
@@ -142,18 +143,21 @@ rl.on("close", () => {
 
   console.log(resCompleteUniqueNames);
 
+  // On récupère les last names uniques
   let uniqueLastsArr = resCompleteUniqueNames.map(
     (item) => item.split(", ")[0]
   );
+  // On récupère les first names uniques
   let uniqueFirstsArr = resCompleteUniqueNames.map(
     (item) => item.split(", ")[1]
   );
 
+  // B)
   /*
   - Je récupère un lastName au hasard dans uniqueLastsArr
   - Je récupère un firstName au hasard dans uniqueFirstsArr
   - Je les joins pour faire un name
-  - Je cherche si cette combinaison name existe dans le tableau resCompUniqueNames  
+  - Je cherche si cette combinaison name existe dans le tableau resCompleteUniqueNames  
   - Si il n'existe pas je le push dans un tableau newCombiNamesArr
   - Je filtre le tableau newCombiNamesArr pour n'avoir que des name avec lastName et firstName uniques
   - Quand le tableau atteint 25 de long j'arrête la génération
